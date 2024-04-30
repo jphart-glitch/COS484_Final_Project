@@ -1,3 +1,7 @@
+# NOTE AND ACKNOWLEDGEMENT
+
+The following code is adapted from <a src="https://github.com/princeton-nlp/ALCE">the original ALCE code</a>.
+
 # Enabling Large Language Models to Generate Text with Citations
 
 <p align="center"><img src="https://github.com/princeton-nlp/ALCE/blob/main/assets/moose.png?raw=true" alt="ALCE" width="15%"><br>*: ALCE is pronounced as /elk/ as ALCE is the Latin word for elk (Europe) or moose (North America).

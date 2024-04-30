@@ -12,6 +12,35 @@ from sentence_transformers import SentenceTransformer
 
 TOPK = 100
 
+def zhwiki_index_retrieval(data):
+    from pyserini.search import LuceneSearcher
+    index_path = 'zhwiki-paragraphs'
+    print("loading zhwiki index, this may take a while...")
+    searcher = LuceneSearcher.from_prebuilt_index(index_path)
+
+    print("running zhwiki index retrieval...")
+    for d in tqdm(data):
+        query = d["question"]
+        try:
+            hits = searcher.search(query, TOPK)
+        except Exception as e:
+            #https://github.com/castorini/pyserini/blob/1bc0bc11da919c20b4738fccc020eee1704369eb/scripts/kilt/anserini_retriever.py#L100
+            if "maxClauseCount" in str(e):
+                query = " ".join(query.split())[:950]
+                hits = searcher.search(query, TOPK)
+            else:
+                raise e
+
+        docs = []
+        for hit in hits:
+            h = json.loads(str(hit.docid).strip())
+            docs.append({
+                "title": h["title"],
+                "text": hit.raw,
+                "url": h["url"],
+            })
+        d["docs"] = docs
+
 def bm25_sphere_retrieval(data):
     from pyserini.search import LuceneSearcher
     index_path = os.environ.get("BM25_SPHERE_PATH")
@@ -112,6 +141,8 @@ if __name__ == "__main__":
 
     if args.retriever == "bm25":
         bm25_sphere_retrieval(data)
+    elif args.retriever == "zhwiki":
+        zhwiki_index_retrieval(data)
     elif args.retriever == "gtr":
         gtr_wiki_retrieval(data)
     else:
