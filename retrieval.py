@@ -136,14 +136,16 @@ if __name__ == "__main__":
     parser.add_argument("--output_file", type=str, default=None, help="same format as the data file but with the retrieved docs.")
     args = parser.parse_args()
 
-    with open(args.data_file) as f:
-        data = json.load(f)
-
     if args.retriever == "bm25":
+        with open(args.data_file) as f:
+            data = json.load(f)
         bm25_sphere_retrieval(data)
     elif args.retriever == "zhwiki":
+        data = args.data_file
         zhwiki_index_retrieval(data)
     elif args.retriever == "gtr":
+        with open(args.data_file) as f:
+            data = json.load(f)
         gtr_wiki_retrieval(data)
     else:
         raise NotImplementedError
