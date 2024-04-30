@@ -131,7 +131,7 @@ def gtr_wiki_retrieval(data):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Passage retrieval.")
-    parser.add_argument("--retriever", type=str, default=None, help="options: bm25/gtr")
+    parser.add_argument("--retriever", type=str, default=None, help="options: bm25/zhwiki/gtr")
     parser.add_argument("--data_file", type=str, default=None, help="path to the data file")
     parser.add_argument("--output_file", type=str, default=None, help="same format as the data file but with the retrieved docs.")
     args = parser.parse_args()

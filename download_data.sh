@@ -1,5 +1,3 @@
-wget https://huggingface.co/datasets/princeton-nlp/ALCE-data/resolve/main/ALCE-data.tar
-tar xvf ALCE-data.tar
-mv ALCE-data data
-echo "deleting tar file..."
-rm ALCE-data.tar
+wget https://huggingface.co/datasets/m-a-p/COIG-CQIA/resolve/main/COIG-CQIA-full.jsonl
+mv COIG-CQIA-full data
+echo "Got dataset and moved it to data folder."
