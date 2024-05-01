@@ -33,11 +33,12 @@ def zhwiki_index_retrieval(data):
 
         docs = []
         for hit in hits:
+            print(hit)
             h = json.loads(str(hit.docid).strip())
             docs.append({
                 "title": h["title"],
-                "text": hit.raw,
-                "url": h["url"],
+                "text": h["summary"],
+                "url": h["href"],
             })
         d["docs"] = docs
 
