@@ -20,6 +20,7 @@ def zhwiki_index_retrieval(data):
 
     print("running zhwiki index retrieval...")
     for d in tqdm(data):
+        print(d)
         query = d["question"]
         try:
             hits = searcher.search(query, TOPK)
