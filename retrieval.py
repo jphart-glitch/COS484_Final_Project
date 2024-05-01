@@ -20,7 +20,6 @@ def zhwiki_index_retrieval(data):
 
     print("running zhwiki index retrieval...")
     for d in tqdm(data):
-        print(d)
         query = d["question"]
         try:
             hits = searcher.search(query, TOPK)
@@ -143,7 +142,8 @@ if __name__ == "__main__":
             data = json.load(f)
         bm25_sphere_retrieval(data)
     elif args.retriever == "zhwiki":
-        data = args.data_file
+        with open(args.data_file) as f:
+            data = json.load(f)
         zhwiki_index_retrieval(data)
     elif args.retriever == "gtr":
         with open(args.data_file) as f:
