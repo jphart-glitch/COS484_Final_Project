@@ -158,5 +158,6 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
 
-    with open(args.output_file, "w") as f:
-        json.dump(data, f, indent=4)
+    if args.retriever != "zhwiki":
+        with open(args.output_file, "w") as f:
+            json.dump(data, f, indent=4)
