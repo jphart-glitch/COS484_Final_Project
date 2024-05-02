@@ -1,5 +1,5 @@
 ---
-prompt_file: /content/COS484_Final_Project/prompts/webcpm_default.json
+prompt_file: /content/COS484_Final_Project/prompts/asqa_default.json
 eval_file: modified_data.json
 shot: 2
 ndoc: 5
