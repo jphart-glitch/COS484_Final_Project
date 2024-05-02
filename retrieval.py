@@ -13,38 +13,40 @@ from sentence_transformers import SentenceTransformer
 TOPK = 100
 
 def zhwiki_index_retrieval(data):
-    from pyserini.search import LuceneSearcher
-    index_path = 'zhwiki-paragraphs'
-    print("loading zhwiki index, this may take a while...")
-    searcher = LuceneSearcher.from_prebuilt_index(index_path)
+    processed_data = []
+    for entry in tqdm(data):
+        # Extracting question
+        question = entry.get("question", "")
+        answer = entry.get("answer", "")
 
-    print("running zhwiki index retrieval...")
-    for d in tqdm(data):
-        query = d["question"]
-        try:
-            hits = searcher.search(query, TOPK)
-        except Exception as e:
-            #https://github.com/castorini/pyserini/blob/1bc0bc11da919c20b4738fccc020eee1704369eb/scripts/kilt/anserini_retriever.py#L100
-            if "maxClauseCount" in str(e):
-                query = " ".join(query.split())[:950]
-                hits = searcher.search(query, TOPK)
-            else:
-                raise e
+        question_ctx = ""
+        claims = []
 
-        docs = []
-        for hit in hits:
-            print("This is a hit:")
-            print(hit)
-            print("Hit's docid")
-            print(hit.docid)
-            print("End")
-            h = json.loads(str(hit.docid).strip())
-            docs.append({
-                "title": h["title"],
-                "text": h["summary"],
-                "url": h["href"],
-            })
-        d["docs"] = docs
+        search_results = []
+        for action in entry["actions"]:
+            if action["action"] == "PRESS_SEARCH":
+                for result in action["details"]["result"]:
+                    search_results.append({
+                        "title": result["title"],
+                        "text": result["summary"],
+                        "url": result["href"],
+                        "summary": "",
+                        "extraction": "",
+                        "answers_found": []
+                    })
+
+        processed_data.append({
+            "question": question,
+            "question_ctx": question_ctx,
+            "answer": answer,
+            "claims": claims,
+            "docs": search_results
+        })
+
+    # Save the processed data to a file with correct encoding
+    with open('/content/modified_data.json', 'w', encoding='utf-8') as f:
+        json.dump(processed_data, f, indent=4, ensure_ascii=False)
+
 
 def bm25_sphere_retrieval(data):
     from pyserini.search import LuceneSearcher
