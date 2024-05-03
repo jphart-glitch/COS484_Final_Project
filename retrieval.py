@@ -14,8 +14,11 @@ TOPK = 100
 
 def zhwiki_index_retrieval(data):
     processed_data = []
+    count = 0
     for entry in tqdm(data):
         # Extracting question
+        if count == 2000:
+            break
         question = entry.get("question", "")
         answer = entry.get("answer", "")
 
@@ -42,6 +45,7 @@ def zhwiki_index_retrieval(data):
             "claims": claims,
             "docs": search_results
         })
+        count += 1
 
     # Save the processed data to a file with correct encoding
     with open('/content/modified_data.json', 'w', encoding='utf-8') as f:
