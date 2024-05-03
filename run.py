@@ -297,6 +297,7 @@ def main():
         from searcher import SearcherWithinDocs
 
     for idx, item in enumerate(tqdm(eval_data)):
+        time.sleep(2.1)
         prompt = item['prompt']
         prompt_len = len(llm.tokenizer.tokenize(prompt))
 
