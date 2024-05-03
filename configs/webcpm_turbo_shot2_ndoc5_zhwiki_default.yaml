@@ -5,5 +5,5 @@ shot: 2
 ndoc: 5
 dataset_name: webcpm
 tag: zhwiki
-model: gpt-3.5-turbo-0301
+model: gpt-3.5-turbo-0125
 openai_api: true
