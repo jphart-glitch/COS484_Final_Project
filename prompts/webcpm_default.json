@@ -1,110 +1,110 @@
 {
-    "instruction": "Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search results, use [1][2][3]. Cite at least one document and at most three documents in each sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of the documents.",
+    "instruction": "Instruction: Write an accurate, engaging, and concise answer in Chinese for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search results, use [1][2][3]. Cite at least one document and at most three documents in each sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of the documents.",
     "demo_sep": "\n\n\n",
     "demo_prompt": "{INST}\n\nQuestion: {Q}\n\n{D}\nAnswer: {A}",
     "doc_prompt": "Document [{ID}](Title: {T}): {P}\n",
     "demos": [
         {
-            "question": "哪里是地球上最多雨的地方？",
+            "question": "Which is the most rainy place on earth?",
             "answer": "几个地方声称是地球上最多雨的地方，例如哥伦比亚的洛罗，在1952年至1989年间报告了平均年降水量12,717毫米，以及哥伦比亚的洛佩兹德米凯，在1960年至2012年间报告了年平均12,892毫米的降水量[3]。然而，印度马辛勒姆以平均年降水量11,872毫米[3]保持官方记录，尽管附近的城镇索拉（也被称为乔拉朋吉）在1861年7月保持单月最多降雨记录，在1860年8月至1861年7月间保持一年最多降雨记录[1]。",
             "docs": [
                 {
-                    "title": "乔拉朋吉",
-                    "text": "乔拉朋吉乔拉朋吉（；当地名字索拉更常用，也可拼写为Cherrapunjee或Cherrapunji）是印度梅加拉亚邦东卡西山区的一个分区镇。它是Nongkhlaw \"hima\"（卡西部落酋长制的小国）的传统首都，也被称为索拉或Churra。乔拉朋吉曾被认为是地球上最潮湿的地方，但现在附近的马辛勒姆目前持有该称号。然而，乔拉朋吉仍保持1861年7月历史上单月最多降雨量的记录以及从1860年8月到1861年7月一年中最多降雨量的记录：它接收了"
+                    "title": "Cherrapunji",
+                    "text": "Cherrapunji Cherrapunji (; with the native name Sohra being more commonly used, and can also be spelled Cherrapunjee or Cherrapunji) is a subdivisional town in the East Khasi Hills district in the Indian state of Meghalaya. It is the traditional capital of aNongkhlaw \"hima\" (Khasi tribal chieftainship constituting a petty state), both known as Sohra or Churra. Cherrapunji has often been credited as being the wettest place on Earth, but for now nearby Mawsynram currently holds that distinction. Cherrapunji still holds the all-time record for the most rainfall in a calendar month for July 1861 and most rain in a year from August 1860 to July 1861, however: it received in"
                 },
                 {
-                    "title": "乔拉朋吉",
-                    "text": "被称为Akashvani乔拉朋吉的无线电中继站。它通过FM频率进行广播。乔拉朋吉乔拉朋吉（；当地名字索拉更常用，也可拼写为Cherrapunjee或Cherrapunji）是印度梅加拉亚邦东卡西山区的一个分区镇。它是Nongkhlaw \"hima\"（卡西部落酋长制的小国）的传统首都，也被称为索拉或Churra。乔拉朋吉曾被认为是地球上最潮湿的地方，但现在附近的马辛勒姆目前持有该称号。乔拉朋吉仍保持有史以来最多降雨的记录"
+                    "title": "Cherrapunji",
+                    "text": "Radio relay station known as Akashvani Cherrapunji. It broadcasts on FM frequencies. Cherrapunji Cherrapunji (; with the native name Sohra being more commonly used, and can also be spelled Cherrapunjee or Cherrapunji) is a subdivisional town in the East Khasi Hills district in the Indian state of Meghalaya. It is the traditional capital of aNongkhlaw \"hima\" (Khasi tribal chieftainship constituting a petty state), both known as Sohra or Churra. Cherrapunji has often been credited as being the wettest place on Earth, but for now nearby Mawsynram currently holds that distinction. Cherrapunji still holds the all-time record for the most rainfall"
                 },
                 {
-                    "title": "马辛勒姆",
-                    "text": "马辛勒姆马辛勒姆（）是印度东北部梅加拉亚邦东卡西山区的一个村庄，距离西隆65公里。马辛勒姆接受了印度最高的降雨量之一。据报道，它是地球上最潮湿的地方，平均年降水量为11,872毫米，但这一说法受到哥伦比亚洛罗的挑战，洛罗在1952年至1989年间报告了平均年降水量12,717毫米，以及哥伦比亚的洛佩兹德米凯，它在1960年至2012年间报告了每年平均12,892毫米的降水量。根据《吉尼斯世界纪录大全》，1985年马辛勒姆接收了降雨量。马辛勒姆位于北纬25° 18′"
+                    "title": "Mawsynram",
+                    "text": "Mawsynram Mawsynram () is a village in the East Khasi Hills district of Meghalaya state in north-eastern India, 65 kilometres from Shillong. Mawsynram receives one of the highest rainfalls in India. It is reportedly the wettest place on Earth, with an average annual rainfall of 11,872 mm, but that claim is disputed by Lloró, Colombia, which reported an average yearly rainfall of 12,717 mm between 1952 and 1989 and López de Micay, also in Colombia, which reported an annual 12,892 mm per year between 1960 and 2012. According to the \"Guinness Book of World Records\", Mawsynram received of rainfall in 1985. Mawsynram is located at 25° 18′"
                 },
                 {
-                    "title": "地球降雨气候学",
-                    "text": "太平洋西北部和内华达山脉是该国较湿润的部分，平均年降雨量超过每年。干旱区域是美国西南部的沙漠、大盆地、亚利桑那东北部的山谷、犹他中部、怀俄明东部、俄勒冈和华盛顿东部以及奥林匹克半岛的东北部。位于毛伊岛的Big Bog每年平均接收，使其成为美国及整个大洋洲最潮湿的地点。该大陆的年平均降雨量最大值跨越西北部，从巴西西北部延伸至北秘鲁、哥伦比亚和厄瓜多尔，然后沿着大西洋海岸"
+                    "title": "Earth rainfall climatology",
+                    "text": "Pacific Northwest, and the Sierra Nevada range are the wetter portions of the nation, with average rainfall exceeding per year. The drier areas are the Desert Southwest, Great Basin, valleys of northeast Arizona, eastern Utah, central Wyoming, eastern Oregon and Washington and the northeast of the Olympic Peninsula. The Big Bog on the island of Maui receives, on average, every year, making it the wettest location in the US, and all of Oceania. The annual average rainfall maxima across the continent lie across the northwest from northwest Brazil into northern Peru, Colombia, and Ecuador, then along the Atlantic coast of"
                 },
                 {
-                    "title": "极端环境",
-                    "text": "世界上。西伯利亚的Oymyakon，平均冬季气温为−47°F（−44°C）。智利的阿里卡，那里连续十四年无雨。雾是唯一的当地水源。印度马辛勒姆，平均年降水量为14米，这些降雨主要集中在四个月的季风季节内。其降雨量大致等同于其邻近的乔拉朋吉。埃塞俄比亚的达洛尔被称为‘地狱之洞’，那里全年平均气温为94°F（34°C）。在他的第二次系列中，米德尔顿访问了没有永久居民点的地方，生存环境"
+                    "title": "Going to Extremes",
+                    "text": "in the world. Oymyakon in Siberia, where the average winter temperature is −47 °F (− 44 °C). Arica in Chile, where there had been fourteen consecutive years without rain. Fog is the only local source of water. Mawsynram in India, where average annual rainfall is 14 meters, falling within a four-month period in the monsoon season. The rainfall is approximately equal to that of its neighbor Cherrapunji. Dallol in Ethiopia, known as the 'Hell-hole of creation' where the temperature averages 94 °F (34 °C) over the year. In his second series, Middleton visited places without permanent towns, locations where \"survival\""
                 }
             ]
         },
         {
-            "question": "美国是什么时候从英国独立的？",
+            "question": "When did the us break away from england?",
             "answer": "美国在1776年7月2日宣布从大不列颠独立，从而迈出了获得独立的第一步（尽管这一事件现在是在1776年7月4日纪念，也就是《独立宣言》正式被国会采纳的日期）[2]。后来，在1783年9月3日签署了《巴黎条约》，正式将美国从英国帝国中分离出来[3]。",
             "docs": [
                 {
-                    "title": "美国从沙特阿拉伯撤军",
-                    "text": "美国从沙特阿拉伯撤军始于1990年8月的沙漠之盾行动期间，为备战海湾战争，美国向沙特阿拉伯派遣了大量军队。战后，主要是美国空军人员的残余部队，加上来自美国海军、美国陆军和美国海军陆战队的较少数量的协调和培训人员，在西南亚联合特遣部队（JTF-SWA）的保护下留在沙特阿拉伯，作为南方守望行动（OSW）的一部分。英国和法国也保持了少量的皇家空军和法国空军的小部队"
+                    "title": "United States withdrawal from Saudi Arabia",
+                    "text": "United States withdrawal from Saudi Arabia Beginning during Operation Desert Shield in August 1990, while preparing for the Gulf War, the United States sent a large troop contingent to Saudi Arabia. After the war, remnant troops, primarily U.S. Air Force personnel, augmented by a smaller number of coordinating and training personnel from the U.S. Navy, U.S. Army and U.S. Marine Corps remained in Saudi Arabia under the aegis of Joint Task Force Southwest Asia (JTF-SWA), as part of Operation Southern Watch (OSW). The United Kingdom and France also maintained a small contingent of Royal Air Force and French Air Force"
                 },
                 {
-                    "title": "美洲的去殖民化",
-                    "text": "美利坚合众国在1776年7月2日宣布从大不列颠独立（尽管这一事件现在是在7月4日纪念，也就是《独立宣言》正式被国会采纳的日期），从而成为美洲第一个独立的、获得外国认可的国家，也是第一个从其母国独立的欧洲殖民实体。英国在美国独立战争后的1783年正式承认美国独立。尽管最初只占据密西西比河以东的土地"
+                    "title": "Decolonization of the Americas",
+                    "text": "and France has fully \"integrated\" most of its former colonies as fully constituent \"departments\" of France. The United States of America declared independence from Great Britain on July 2, 1776 (although the event is now commemorated on July 4, the date when the Declaration of Independence was officially adopted by Congress), in so doing becoming the first independent, foreign-recognized nation in the Americas and the first European colonial entity to break from its mother country. Britain formally acknowledged American independence in 1783 after its defeat in the American Revolutionary War. Although initially occupying only the land east of the Mississippi"
                 },
                 {
-                    "title": "美国革命",
-                    "text": "1781年秋季在约克镇战役中击败了第二支英军，有效地结束了战争。《巴黎条约》于1783年9月3日签署，正式结束了冲突并确认了这个新国家与英国帝国的完全分离。美国接管了几乎所有大湖以南、密西西比河以东的领土，英国保留了加拿大的控制权，西班牙获得了佛罗里达。革命的重要成果之一是创建了美国宪法，建立了一个相对强大的联邦国家政府，其中包括一个行政部门、一个国家司法系统和"
+                    "title": "American Revolution",
+                    "text": "second British army at Yorktown in the fall of 1781, effectively ending the war. The Treaty of Paris was signed September 3, 1783, formally ending the conflict and confirming the new nation's complete separation from the British Empire. The United States took possession of nearly all the territory east of the Mississippi River and south of the Great Lakes, with the British retaining control of Canada and Spain taking Florida. Among the significant results of the revolution was the creation of the United States Constitution, establishing a relatively strong federal national government that included an executive, a national judiciary, and"
                 },
                 {
-                    "title": "去殖民化",
-                    "text": "加速去殖民化，结束其西方盟友的殖民帝国，特别是在1956年的苏伊士危机期间，但美国在世界各地建立了军事基地，并在朝鲜、印度支那、拉丁美洲（例如，1965年占领多米尼加共和国）、非洲和中东继续进行直接和间接干预，以对抗共产主义的入侵和叛乱。自苏联解体以来，美国在美洲的活动大大减少，但在2001年9月11日袭击后入侵了阿富汗和伊拉克，在中亚建立了陆军和空军基地。在此之前"
+                    "title": "Decolonization",
+                    "text": "accelerate decolonialization and bring an end to the colonial empires of its Western allies, most importantly during the 1956 Suez Crisis, but American military bases were established around the world and direct and indirect interventions continued in Korea, Indochina, Latin America (\"inter alia\", the 1965 occupation of the Dominican Republic), Africa, and the Middle East to oppose Communist invasions and insurgencies. Since the dissolution of the Soviet Union, the United States has been far less active in the Americas, but invaded Afghanistan and Iraq following the September 11 attacks in 2001, establishing army and air bases in Central Asia. Before"
                 },
                 {
-                    "title": "去殖民化",
-                    "text": "责任归属于英国（附上新宪法副本），最后，如果获批准，颁布命令委员会的命令确定独立的确切日期。第一次世界大战后，英国作为国际联盟的委任统治地管理了中东、非洲和太平洋地区的几个前德国和奥斯曼土耳其领土。有些由英国直接管理，有些由英国的自治领管理 - 澳大利亚管理瑙鲁和新几内亚领地，南非联盟管理西南非洲，新西兰管理西萨摩亚。埃及在1922年独立，"
+                    "title": "Decolonization",
+                    "text": "the responsibility of the United Kingdom (with a copy of the new constitution annexed), and finally, if approved, issuance of an Order of Council fixing the exact date of independence. After World War I, several former German and Ottoman territories in the Middle East, Africa, and the Pacific were governed by the UK as League of Nations mandates. Some were administered directly by the UK, and others by British dominions – Nauru and the Territory of New Guinea by Australia, South West Africa by the Union of South Africa, and Western Samoa by New Zealand. Egypt became independent in 1922,"
                 }
             ]
         },
         {
-            "question": "谁创下了最长射门记录？",
+            "question": "Who set the record for longest field goal?",
             "answer": "NFL比赛中最长射门记录是由马特·普雷特以64码创下的[1]，但在任何级别上的最长射门记录是69码，这一记录由大学生球员奥韦·约翰松在1976年阿比林基督教大学对阵东德克萨斯州立大学的足球比赛中完成[2]。",
             "docs": [
                 {
-                    "title": "射门",
-                    "text": "射门中在NFL历史上最长的一脚是64码，这一记录由马特·普雷特于2013年12月8日创下。之前的记录是63码，最初由汤姆·登普西（1970年）创下，随后由贾森·埃拉姆（1998年）、塞巴斯蒂安·贾尼科夫斯基（2011年）、大卫·阿克斯（2012年）和格雷厄姆·加诺（2018年）相继达成。高中、大学和大多数职业足球联赛只提供三分射门；然而，一些职业联赛鼓励通过“四分射门”来进行更少见的踢法。NFL欧洲赛区通过将50码或更远的射门从三分改为四分来鼓励长距离射门"
+                    "title": "Field goal",
+                    "text": "toward its own end. The longest field goal kick in NFL history is 64 yards, a record set by Matt Prater on December 8, 2013. The previous record was 63, originally set by Tom Dempsey (1970) and then matched by Jason Elam (1998), Sebastian Janikowski (2011), David Akers (2012), and Graham Gano (2018). High school, college and most professional football leagues offer only a three-point field goal; however, some professional leagues have encouraged more rare kicks through \"four-point field goals\". NFL Europe encouraged long field goals of 50 yards or more by making those worth four points instead of three"
                 },
                 {
-                    "title": "射门范围",
-                    "text": "35码和40码线（在侧风中更近）的位置通常会选择更冒险的第四次尝试而不是冒险触地或失误射门。记录在册的足球历史上最长的射门是69码，由出生于瑞典的大学生球员奥韦·约翰松在1976年阿比林基督教大学对阵东德克萨斯州立大学（现德州A&M商学院）的比赛中在肖特韦尔球场完成。NFL中最成功的最长射门是64码，由马特·普雷特在2013年完成。NCAA的记录是67码"
+                    "title": "Field goal range",
+                    "text": "35 and 40 yard lines (closer in a crosswind) often will go for the more risky fourth down conversion rather than risk either the touchback or the missed field goal. The longest field goal in recorded football history was 69 yards, set by collegiate kicker Ove Johansson, who was born in Sweden, in a 1976 Abilene Christian University football game against East Texas State University (now Texas A&M Commerce) at Shotwell Stadium in Abilene. The longest successful field goal in the NFL was 64 yards and was completed by Matt Prater in 2013. The NCAA record is 67 yards held"
                 },
                 {
-                    "title": "射门",
-                    "text": "双端区的距离只有66码。斯卡奇亚在室内足球比赛中尝试过64码的射门，几乎成功，球击中了横梁。曾有尝试过更长距离的射门；NFL中尝试的最远射门是76码，由塞巴斯蒂安·贾尼科夫斯基在2008年9月28日对阵圣地亚哥充电器的比赛中顶风踢出。NFL欧洲赛区为成功完成超过50码的射门的踢球手额外加分，使这类射门值四分而不是三分；"
+                    "title": "Field goal",
+                    "text": "both end zones) is only 66 yards. Scaccia, while playing indoor football, attempted a 64-yard kick that was inches short of success, hitting the crossbar. Longer field goals have been attempted at times; the longest attempt in the NFL, which was well short and was kicked into the wind, was 76 yards, attempted by Sebastian Janikowski of the Oakland Raiders, in a September 28, 2008 game against the San Diego Chargers. NFL Europe rewarded kickers that successfully kicked a field goal of longer than 50 yards with a bonus point, making such field goals worth 4 points instead of 3;"
                 },
                 {
-                    "title": "射门",
-                    "text": "这项成就并非官方记录。上述所有成功的射门都是使用踢球架完成的，这在1988赛季后被NCAA禁止。已知最远的掷球射门是由澳大利亚踢球手帕特·奥迪亚在威斯康星大学的比赛中完成的62码。奥迪亚的射门发生在1898年11月15日对阵西北大学的一场暴风雪中。加拿大大学体育史上最长的射门是尼科·迪丰特在2017年11月11日对阵UBC雷鸟的比赛中踢出的59码。球场"
+                    "title": "Field goal",
+                    "text": "this accomplishment is not the official record. All of the above kicks were successful with the use of a kicking tee, which was banned by the NCAA after the 1988 season. The longest known drop-kicked field goal in college football was a 62-yard kick from Pat O'Dea, an Australian kicker who played on the Wisconsin Badgers football team. O'Dea's kick took place in a blizzard against Northwestern on November 15, 1898. The longest field goal in U Sports football history is 59 yards, by Niko Difonte of Calgary Dinos, playing against the UBC Thunderbirds on November 11, 2017. The field"
                 },
                 {
-                    "title": "射门范围",
-                    "text": "NCAA自1989年起禁止使用，高中的纪录是68码，由迪尔克·博戈尼翁保持；高中的球门柱更宽，对于落在球场内的射门尝试视同于传球，使得更长距离的尝试风险较小。室内足球的记录，球门柱更窄更高，是63码（由亚伦·米尔斯设立），这在该运动变体中几乎是可能的最长射门，因为室内足球场（包括"
+                    "title": "Field goal range",
+                    "text": "NFL and have been banned from NCAA since 1989) is 68 yards held by Fabrizio Scaccia, and the high school record 68 yards held by Dirk Borgognone; high school has wider goal posts and treats a field goal attempt that lands short in the field of play the same as a punt, making longer attempts much less risky. The indoor football record, with narrower and higher goal posts, is 63 yards (set by Aaron Mills), which is practically as long of a field goal as is possible in that variant of the sport, since the field in indoor football (including"
                 }
             ]
         },
         {
-            "question": "谁在《猿人争霸战》中扮演了盖伦？",
+            "question": "Who played galen in planet of the apes?",
             "answer": "在1968年的电影《猿人争霸战》中，盖伦由赖特·金扮演[2]。在电视剧《猿人争霸战》中，盖伦由罗迪·麦克道尔扮演[1]。",
             "docs": [
                 {
-                    "title": "猿人争霸战",
-                    "text": "该系列的安装。雅各布斯于1973年6月27日去世，结束了APJAC制作的《猿人争霸战》系列时代。前福克斯高管斯坦·霍夫接管了电视项目的制作，该项目命名为《猿人争霸战》。CBS将该系列纳入其1974年秋季节目表。罗恩·哈珀和詹姆斯·诺顿分别扮演了两名20世纪的美国宇航员艾伦·维登和彼得·伯克，他们穿越时空隧道来到了一个猿类统治人类的未来（与原版电影不同，这里的人类能说话）。罗迪·麦克道尔回归该系列，扮演了加入宇航员行列的黑猩猩盖伦。"
+                    "title": "Planet of the Apes",
+                    "text": "installment. Jacobs died on June 27, 1973, bringing an end to the APJAC Productions era of the \"Planet of the Apes\" franchise. Former Fox executive Stan Hough took over as producer for the television project, titled \"Planet of the Apes\". CBS picked up the series for its 1974 autumn lineup. Ron Harper and James Naughton played Alan Virdon and Peter Burke, two 20th-century American astronauts who pass through a time warp to a future where apes subjugate humans (unlike the original film, the humans can speak). Roddy McDowall returned to the franchise as Galen, a chimpanzee who joins the astronauts."
                 },
                 {
-                    "title": "猿人争霸战（1968年电影）",
-                    "text": "动物心理学家齐拉（金·亨特饰）和外科医生盖伦（赖特·金饰）。在他的喉咙伤口愈合期间无法说话，被齐拉称为“明亮的眼睛”，并与他后来命名为“诺瓦”的一个原始人类俘虏一起被安置，泰勒观察到了拥有语言能力的猿类社会以及严格的种姓制度：猩猩是军警、猎人和工人；猩猩监管政府、科学和宗教事务；智慧的黑猩猩主要是科学家。虽然他们的社会是类似人类工业时代初期的神权政体，但猿类认为原始人类"
+                    "title": "Planet of the Apes (1968 film)",
+                    "text": "chimpanzees: animal psychologist Zira (Kim Hunter) and surgeon Galen (Wright King). While unable to speak as his throat wound is healing, called \"Bright Eyes\" by Zira and placed with one of the captive primitive humans he later names \"Nova\", Taylor observes the enhanced society of talking apes and in a strict caste system: the gorillas being the military police, hunters and workers; the orangutans overseeing the affairs of government, science, and religion; and intellectual chimpanzees being mostly scientists. While their society is a theocracy similar to the beginnings of the human Industrial Era, the apes consider the primitive humans as"
                 },
                 {
-                    "title": "猿人争霸战（1968年电影）",
-                    "text": "《猿人争霸战》是1968年由富兰克林·J·沙夫纳导演的美国科幻电影。主演查尔顿·赫斯顿、罗迪·麦克道尔、金·亨特、莫里斯·埃文斯、詹姆斯·惠特摩尔、詹姆斯·戴利和琳达·哈里森。迈克尔·威尔森和罗德·瑟林根据皮埃尔·布尔的1963年法国小说《星球大战》改编剧本。杰里·戈德史密斯创作了开创性的前卫配乐。这是从1968年到1973年之间制作的五部电影系列的第一部，所有这些电影都由阿瑟·P·雅各布斯制作并由20世纪福克斯发行。这部电影讲述了"
+                    "title": "Planet of the Apes (1968 film)",
+                    "text": "Planet of the Apes (1968 film) Planet of the Apes is a 1968 American science fiction film directed by Franklin J. Schaffner. It stars Charlton Heston, Roddy McDowall, Kim Hunter, Maurice Evans, James Whitmore, James Daly and Linda Harrison. The screenplay by Michael Wilson and Rod Serling was loosely based on the 1963 French novel \"La Plan\u00e8te des Singes\" by Pierre Boulle. Jerry Goldsmith composed the groundbreaking avant-garde score. It was the first in a series of five films made between 1968 and 1973, all produced by Arthur P. Jacobs and released by 20th Century Fox. The film tells the"
                 },
                 {
-                    "title": "猿人争霸战",
-                    "text": "鲁珀特·怀亚特。为了逼真地描绘猿类角色，制作避免使用实用效果，而是选择表演捕捉技术，与新西兰视觉效果公司韦塔数码合作。怀亚特选择了詹姆斯·弗兰科饰演威尔·罗德曼，而资深表演捕捉演员安迪·瑟金斯签约饰演凯撒。《崛起》于2011年8月5日首映。影评人给予了积极评价，特别是赞扬了视觉效果和瑟金斯的表演。它是一个重大的票房成功，全球收入4.82亿美元，超过了9300万美元的预算五倍。韦塔的特效赢得了两个视觉效果学会奖项和奥斯卡提名"
+                    "title": "Planet of the Apes",
+                    "text": "Rupert Wyatt. To portray ape characters realistically, the production avoided practical effects in favor of performance capture acting, partnering with New Zealand visual effects company Weta Digital. Wyatt cast James Franco as Will Rodman, while veteran performance capture actor Andy Serkis signed on to star as Caesar. \"Rise\" debuted on August 5, 2011. Critics reviewed it positively, especially praising the visual effects and Serkis's performance. It was a major box office hit, taking in $482 million globally, more than five times its $93 million budget. Weta's special effects earned the film two Visual Effects Society Awards and an Oscar nomination"
                 },
                 {
-                    "title": "猿人争霸战",
-                    "text": "电影主演马克·沃尔伯格饰演宇航员里奥·戴维森，他意外穿越虫洞来到一个遥远的星球，在这里会说话的猿类奴役了人类。他领导了一场人类起义，通过发现随他的任务而来的普通地球灵长类动物进化成猿类，并在多年前到达，颠覆了猿类文明。海伦娜·伯翰·卡特饰演黑猩猩阿丽，而蒂姆·罗斯饰演讨厌人类的黑猩猩将军塞德。这部电影获得了褒贬不一的评论；大多数评论家认为它无法与原作相比。尽管许多评论者赞扬了"
+                    "title": "Planet of the Apes",
+                    "text": "film stars Mark Wahlberg as astronaut Leo Davidson, who accidentally travels through a wormhole to a distant planet where talking apes enslave humans. He leads a human revolt and upends ape civilization by discovering that the apes evolved from the normal earth primates who had accompanied his mission, and arrived years before. Helena Bonham Carter played chimpanzee Ari, while Tim Roth played the human-hating chimpanzee General Thade. The film received mixed reviews; most critics believed it failed to compare to the original. Much of the negative commentary focused on the confusing plot and twist ending, though many reviewers praised the"
                 }
             ]
         }        
