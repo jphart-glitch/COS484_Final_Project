@@ -12,6 +12,7 @@ from rouge_score import rouge_scorer, scoring
 from tqdm import tqdm
 import sys
 import logging
+
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S')
 logger = logging.getLogger(__name__)
@@ -106,13 +107,12 @@ def compute_rouge(data):
         scorer = rouge_scorer.RougeScorer(metrics)
         aggregator = scoring.BootstrapAggregator()
 
-        for i in range(len(hypotheses)):
-            scores1 = scorer.score(references1[i], hypotheses[i])
-            scores2 = scorer.score(references2[i], hypotheses[i])
-            if scores1['rougeLsum'].fmeasure > scores2['rougeLsum'].fmeasure:
-                aggregator.add_scores(scores1)
-            else:
-                aggregator.add_scores(scores2)
+        for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
+            score1 = scorer.get_scores(hyp, ref1)
+            score2 = scorer.get_scores(hyp, ref2)
+            best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
+            for metric in metrics:
+                scores[metric].append(best_score[metric]['f'])
 
         scores = {m: [] for m in metrics}
 
