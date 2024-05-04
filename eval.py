@@ -95,7 +95,7 @@ def compute_rouge(data):
     Returns:
         dictionary representation of rouge scores
     """
-    def _rouge_calculation(hypotheses, references1, references2=None, metrics=['rougeLsum']):
+    def _rouge_calculation(hypotheses, references1, references2=None, metrics=['rouge-l']):
         # Initialize the Rouge scorer from rouge-chinese
         if references2 is None:
             references2 = references1
@@ -105,6 +105,7 @@ def compute_rouge(data):
 
         for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
             score1 = scorer.get_scores(hyp, ref1)
+            print(score1)
             score2 = scorer.get_scores(hyp, ref2)
             best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
             for metric in metrics:
@@ -132,7 +133,7 @@ def compute_rouge(data):
 
     # Calculate scores
     scores = _rouge_calculation(hypotheses, references1, references2)
-    return scores['rougeLsum']
+    return scores['rouge-l']
 
 
 def compute_str_em(data):
