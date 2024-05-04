@@ -87,25 +87,20 @@ def exact_presence(short_answers, context):
 
 
 def compute_rouge(data):
-    """Main function for rouge scoring.
-    If two references are provided,
-    the best score is chosen for each instance.
+    """Main function for rouge scoring using rouge-chinese for Chinese language support.
+    If two references are provided, the best score is chosen for each instance.
     Args:
         data: requires field `output` and `answer` (or `annotations` for ASQA)
-        metrics: list of evaluation metrics
     Returns:
         dictionary representation of rouge scores
     """
-    def _rouge_calculation(hypotheses,
-                        references1,
-                        references2=[],
-                        metrics=['rougeLsum']):
-
-        if references2 == []:
+    def _rouge_calculation(hypotheses, references1, references2=None, metrics=['rouge-l']):
+        # Initialize the Rouge scorer from rouge-chinese
+        if references2 is None:
             references2 = references1
 
-        scorer = rouge_scorer.RougeScorer(metrics)
-        aggregator = scoring.BootstrapAggregator()
+        scorer = Rouge(metrics=metrics)
+        scores = {metric: [] for metric in metrics}
 
         for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
             score1 = scorer.get_scores(hyp, ref1)
@@ -114,45 +109,29 @@ def compute_rouge(data):
             for metric in metrics:
                 scores[metric].append(best_score[metric]['f'])
 
-        scores = {m: [] for m in metrics}
-
-        for m in metrics:
-            fmeasure = aggregator.aggregate()[m].mid.fmeasure
-            scores[m].append(fmeasure)
-
-        for m in scores:
-            scores[m] = 100 * sum(scores[m]) / len(scores[m])
+        # Convert scores to percentages
+        for metric in scores:
+            scores[metric] = 100 * sum(scores[metric]) / len(scores[metric])
 
         return scores
 
-    hypotheses = {}
-    references1 = {}
-    references2 = {}
+    hypotheses = []
+    references1 = []
+    references2 = []
 
-    for idx, item in enumerate(data):
-        hypotheses[idx] = item["output"]
+    # Extracting data from the input
+    for item in data:
+        hypotheses.append(item["output"].lower())
         if "annotations" in item and item['annotations'] is not None: # For ASQA
-            references1[idx] = item["annotations"][0]["long_answer"]
-            references2[idx] = item["annotations"][1]["long_answer"]
+            references1.append(item["annotations"][0]["long_answer"].lower())
+            references2.append(item["annotations"][1]["long_answer"].lower())
         else:
-            references1[idx] = item["answer"]
-            references2[idx] = item["answer"]
+            references1.append(item["answer"].lower())
+            references2.append(item["answer"].lower())
 
-    h, r1, r2 = [], [], []
-
-    for key in references1:
-        h.append(hypotheses[key])
-        r1.append(references1[key])
-
-        if references2 is not None:
-            r2.append(references2[key])
-
-    h = ['\n'.join(sent_tokenize(text.lower())) for text in h]
-    r1 = ['\n'.join(sent_tokenize(text.lower())) for text in r1]
-    r2 = ['\n'.join(sent_tokenize(text.lower())) for text in r2]
-    scores = _rouge_calculation(h, r1, r2)
-
-    return scores['rougeLsum']
+    # Calculate scores
+    scores = _rouge_calculation(hypotheses, references1, references2)
+    return scores['rouge-l']
 
 
 def compute_str_em(data):
