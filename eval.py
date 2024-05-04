@@ -9,6 +9,7 @@ import copy
 from nltk import sent_tokenize
 import numpy as np
 from rouge_score import rouge_scorer, scoring
+from rouge_chinese import Rouge
 from tqdm import tqdm
 import sys
 import logging
