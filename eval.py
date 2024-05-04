@@ -242,6 +242,8 @@ def compute_qa(data):
 
 def compute_mauve(data):
     """Compute Mauve score."""
+    import pynlpir
+    pynlpir.open()
 
     logger.info("Computing MAUVE...")
     human_data = []
