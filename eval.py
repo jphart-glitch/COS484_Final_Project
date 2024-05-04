@@ -181,10 +181,12 @@ def compute_str_em(data):
 
 def compute_len(data):
     """Compute average length of predictions."""
+    import pynlpir
+    pynlpir.open()
 
     res, cntr = 0, 0
     for item in data:
-        res += len(item["output"].split())
+        res += len(pynlpir.segment(item, pos_tagging=False))
         cntr += 1
     return res / cntr
 
