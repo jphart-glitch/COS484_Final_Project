@@ -109,6 +109,9 @@ def compute_rouge(data):
             print(score1[0])
             print(score1[0]['rouge-l'])
             score2 = scorer.get_scores(hyp, ref2)
+            print(score2)
+            print(score2[0])
+            print(score2[0]['rouge-l'])
             best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
             for metric in metrics:
                 scores[metric].append(best_score[metric]['f'])
