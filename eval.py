@@ -250,8 +250,13 @@ def compute_mauve(data):
         # Remove ending punctuations
         # Remove any new lines
         # Truncate by 100 words
-        human_data.append(' '.join((item['question'] + " " + item['answer'].strip()).split()[:100]).rstrip(string.punctuation))
-        model_data.append(' '.join((item['question'] + " " + item['output'].strip()).split()[:100]).rstrip(string.punctuation))
+        question_tokens = pynlpir.segment(item['question'], pos_tagging=False)
+        answer_tokens = pynlpir.segment(item['answer'], pos_tagging=False)
+        output_tokens = pynlpir.segment(item['output'], pos_tagging=False)
+        human_data.append(' '.join((' '.join(question_tokens) + " " + ' '.join(answer_tokens)).split()[:100])
+                    .rstrip(string.punctuation))
+        model_data.append(' '.join((' '.join(question_tokens) + " " + ' '.join(output_tokens)).split()[:100])
+                    .rstrip(string.punctuation))
 
     import mauve
     out = mauve.compute_mauve(
