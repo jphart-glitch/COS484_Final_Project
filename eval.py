@@ -186,7 +186,7 @@ def compute_len(data):
 
     res, cntr = 0, 0
     for item in data:
-        res += len(pynlpir.segment(item, pos_tagging=False))
+        res += len(pynlpir.segment(item["output"], pos_tagging=False))
         cntr += 1
     return res / cntr
 
