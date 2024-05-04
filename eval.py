@@ -115,6 +115,10 @@ def compute_rouge(data):
             scores[metric] = 100 * sum(scores[metric]) / len(scores[metric])
 
         return scores
+    
+    print("Hypotheses:", hypotheses)
+    print("References1:", references1)
+    print("References2:", references2)
 
     hypotheses = []
     references1 = []
