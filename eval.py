@@ -104,11 +104,14 @@ def compute_rouge(data):
         scores = {metric: [] for metric in metrics}
 
         for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
-            score1 = scorer.get_scores(hyp, ref1)
-            score2 = scorer.get_scores(hyp, ref2)
-            best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
-            for metric in metrics:
-                scores[metric].append(best_score['f'])
+            if hyp.strip() and ref1.strip() and ref2.strip():
+                score1 = scorer.get_scores(hyp, ref1)
+                score2 = scorer.get_scores(hyp, ref2)
+                best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
+                for metric in metrics:
+                    scores[metric].append(best_score['f'])
+            else:
+                print(f"Skipping due to empty input: hyp={hyp}, ref1={ref1}, ref2={ref2}")
 
         # Convert scores to percentages
         for metric in scores:
@@ -122,13 +125,20 @@ def compute_rouge(data):
 
     # Extracting data from the input
     for item in data:
-        hypotheses.append(item["output"].lower())
-        if "annotations" in item and item['annotations'] is not None: # For ASQA
-            references1.append(item["annotations"][0]["long_answer"].lower())
-            references2.append(item["annotations"][1]["long_answer"].lower())
+        output = item["output"].lower().strip()
+        if "annotations" in item and item['annotations'] is not None:  # For ASQA
+            ref1 = item["annotations"][0]["long_answer"].lower().strip()
+            ref2 = item["annotations"][1]["long_answer"].lower().strip()
         else:
-            references1.append(item["answer"].lower())
-            references2.append(item["answer"].lower())
+            ref1 = item["answer"].lower().strip()
+            ref2 = item["answer"].lower().strip()
+
+        if output and (ref1 or ref2):
+            hypotheses.append(output)
+            references1.append(ref1)
+            references2.append(ref2)
+        else:
+            print(f"Skipping entry due to insufficient data: {item}")
 
     print("Hypotheses:", hypotheses)
     print("References1:", references1)
