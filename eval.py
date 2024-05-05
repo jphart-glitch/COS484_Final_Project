@@ -13,6 +13,7 @@ from rouge_chinese import Rouge
 from tqdm import tqdm
 import sys
 import logging
+import jieba
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S')
@@ -95,9 +96,6 @@ def compute_rouge(data):
     Returns:
         dictionary representation of rouge scores
     """
-    import pynlpir
-    pynlpir.open()
-
     def _rouge_calculation(hypotheses, references1, references2=None, metrics=['rouge-l']):
         # Initialize the Rouge scorer from rouge-chinese
         if references2 is None:
@@ -108,18 +106,18 @@ def compute_rouge(data):
 
         for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
             if hyp.strip() and ref1.strip() and ref2.strip():
-                hyp_tokens = pynlpir.segment(hyp, pos_tagging=False)
-                ref1_tokens = pynlpir.segment(ref1, pos_tagging=False)
-                ref2_tokens = pynlpir.segment(ref2, pos_tagging=False)
-                score1 = scorer.get_scores(hyp_tokens, ref1_tokens)
-                score2 = scorer.get_scores(hyp_tokens, ref2_tokens)
+                hyp = ' '.join(jieba.cut(hyp))
+                ref1 = ' '.join(jieba.cut(ref1)) 
+                ref2 = ' '.join(jieba.cut(ref2)) 
+                score1 = scorer.get_scores(hyp, ref1)
+                score2 = scorer.get_scores(hyp, ref2)
                 best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
                 for metric in metrics:
                     scores[metric].append(best_score['f'])
             else:
                 print(f"Skipping due to empty input: hyp={hyp}, ref1={ref1}, ref2={ref2}")
         
-        print(scores)
+        print()
 
         # Convert scores to percentages
         for metric in scores:
