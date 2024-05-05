@@ -50,7 +50,7 @@ def zhwiki_index_retrieval(data):
         count += 1
 
     # Save the processed data to a file with correct encoding
-    with open('/content/modified_data.json', 'w', encoding='utf-8') as f:
+    with open('/content/modified_data2.json', 'w', encoding='utf-8') as f:
         json.dump(processed_data, f, indent=4, ensure_ascii=False)
 
 
