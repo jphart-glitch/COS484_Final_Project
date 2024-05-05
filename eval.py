@@ -112,6 +112,8 @@ def compute_rouge(data):
                     scores[metric].append(best_score['f'])
             else:
                 print(f"Skipping due to empty input: hyp={hyp}, ref1={ref1}, ref2={ref2}")
+        
+        print(scores)
 
         # Convert scores to percentages
         for metric in scores:
