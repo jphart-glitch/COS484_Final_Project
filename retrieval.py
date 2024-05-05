@@ -17,7 +17,9 @@ def zhwiki_index_retrieval(data):
     count = 0
     for entry in tqdm(data):
         # Extracting question
-        if count == 1000:
+        if count < 1000:
+            continue
+        if count == 2000:
             break
         question = entry.get("question", "")
         answer = entry.get("answer", "")
