@@ -325,7 +325,7 @@ def compute_autoais(data,
     global autoais_model, autoais_tokenizer
     if autoais_model is None:
         logger.info("Loading AutoAIS model...")
-        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), offload_folder="offload", device_map="cuda")
+        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), offload_folder="offload", device_map="auto")
         autoais_tokenizer = AutoTokenizer.from_pretrained(AUTOAIS_MODEL, use_fast=False)
 
     logger.info(f"Running AutoAIS...")
