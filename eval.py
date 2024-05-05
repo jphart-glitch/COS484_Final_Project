@@ -95,6 +95,9 @@ def compute_rouge(data):
     Returns:
         dictionary representation of rouge scores
     """
+    import pynlpir
+    pynlpir.open()
+
     def _rouge_calculation(hypotheses, references1, references2=None, metrics=['rouge-l']):
         # Initialize the Rouge scorer from rouge-chinese
         if references2 is None:
@@ -105,8 +108,11 @@ def compute_rouge(data):
 
         for hyp, ref1, ref2 in zip(hypotheses, references1, references2):
             if hyp.strip() and ref1.strip() and ref2.strip():
-                score1 = scorer.get_scores(hyp, ref1)
-                score2 = scorer.get_scores(hyp, ref2)
+                hyp_tokens = pynlpir.segment(hyp, pos_tagging=False)
+                ref1_tokens = pynlpir.segment(ref1, pos_tagging=False)
+                ref2_tokens = pynlpir.segment(ref2, pos_tagging=False)
+                score1 = scorer.get_scores(hyp_tokens, ref1_tokens)
+                score2 = scorer.get_scores(hyp_tokens, ref2_tokens)
                 best_score = max(score1[0][metrics[0]], score2[0][metrics[0]], key=lambda x: x['f'])
                 for metric in metrics:
                     scores[metric].append(best_score['f'])
