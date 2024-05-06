@@ -34,6 +34,8 @@ AUTOAIS_MODEL="google/t5_xxl_true_nli_mixture"
 global autoais_model, autoais_tokenizer
 autoais_model, autoais_tokenizer = None, None
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+autoais_model = autoais_model.to(device)
 
 def compute_f1(a_gold, a_pred):
     """Compute F1 score between two strings."""
@@ -282,11 +284,7 @@ def _run_nli_autoais(passage, claim):
     input_text = "premise: {} hypothesis: {}".format(passage, claim)
     # input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids.to(autoais_model.device)
 
-    # Set up device
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-    autoais_model = autoais_model.to(device)
-
     input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids
     input_ids = input_ids.to(device) 
 
