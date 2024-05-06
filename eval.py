@@ -145,10 +145,6 @@ def compute_rouge(data):
         else:
             print(f"Skipping entry due to insufficient data: {item}")
 
-    print("Hypotheses:", hypotheses)
-    print("References1:", references1)
-    print("References2:", references2)
-
     # Calculate scores
     scores = _rouge_calculation(hypotheses, references1, references2)
     return scores['rouge-l']
@@ -280,20 +276,9 @@ def _run_nli_autoais(passage, claim):
     global autoais_model, autoais_tokenizer
 
     input_text = "premise: {} hypothesis: {}".format(passage, claim)
-    print(f"Input text: {input_text}")
-
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Model device: {autoais_model.device}")
-    # autoais_model.to(device)
-
     input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids
     input_ids = input_ids.to(device)
-
-    print(f"Using device: {device}")
-
-    # debugging prints
-    print(f"Input IDs type: {input_ids.dtype}, Shape: {input_ids.shape}")
-    print(f"Final input IDs going into the model: {input_ids}")
 
     with torch.inference_mode():
         outputs = autoais_model.generate(input_ids, max_new_tokens=10)
@@ -445,9 +430,6 @@ def compute_autoais(data,
             100 * sent_mcite_support / sent_mcite, 
             100 * sent_mcite_overcite / sent_mcite_support
         ))
-
-    print(ais_scores)
-    print(ais_scores_prec)
 
     return {
         "citation_rec": 100 * np.mean(ais_scores),
