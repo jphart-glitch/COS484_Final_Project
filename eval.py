@@ -305,7 +305,7 @@ def compute_claims(data):
     global autoais_model, autoais_tokenizer
     if autoais_model is None:
         logger.info("Loading AutoAIS model...")
-        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), device_map="auto")
+        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), device="cude")
         autoais_tokenizer = AutoTokenizer.from_pretrained(AUTOAIS_MODEL, use_fast=False)
 
     logger.info("Computing claims...")
