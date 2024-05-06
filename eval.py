@@ -280,19 +280,20 @@ def _run_nli_autoais(passage, claim):
     """
     global autoais_model, autoais_tokenizer
     input_text = "premise: {} hypothesis: {}".format(passage, claim)
-    input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids.to(autoais_model.device)
+    # input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids.to(autoais_model.device)
+
+    # Set up device
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+    autoais_model = autoais_model.to(device)
+
+    input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids
+    input_ids = input_ids.to(device) 
 
     # debugging prints
     print(f"Input text: {input_text}")
     print(f"Input IDs type: {input_ids.dtype}, Shape: {input_ids.shape}")
     print(f"Model device: {autoais_model.device}")
-
-    try:
-    # Try a simple operation that would fail if `input_ids` is a Meta tensor
-        _ = input_ids.sum()
-        print("input_ids is a normal tensor.")
-    except Exception as e:
-        print(f"Failed to perform sum on input_ids: {e}")
 
     print(f"Final input IDs going into the model: {input_ids}")
 
