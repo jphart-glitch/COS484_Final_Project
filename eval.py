@@ -306,7 +306,7 @@ def compute_claims(data):
     global autoais_model, autoais_tokenizer
     if autoais_model is None:
         logger.info("Loading AutoAIS model...")
-        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), device="cude")
+        autoais_model = AutoModelForSeq2SeqLM.from_pretrained(AUTOAIS_MODEL, torch_dtype=torch.bfloat16, max_memory=get_max_memory(), device="cuda")
         autoais_tokenizer = AutoTokenizer.from_pretrained(AUTOAIS_MODEL, use_fast=False)
 
     logger.info("Computing claims...")
@@ -445,6 +445,9 @@ def compute_autoais(data,
             100 * sent_mcite_support / sent_mcite, 
             100 * sent_mcite_overcite / sent_mcite_support
         ))
+
+    print(ais_scores)
+    print(ais_scores_prec)
 
     return {
         "citation_rec": 100 * np.mean(ais_scores),
