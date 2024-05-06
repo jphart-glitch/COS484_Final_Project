@@ -278,6 +278,10 @@ def _run_nli_autoais(passage, claim):
     Adapted from https://github.com/google-research-datasets/Attributed-QA/blob/main/evaluation.py
     """
     global autoais_model, autoais_tokenizer
+
+    passage = ' '.join(jieba.cut(passage))
+    claim = ' '.join(jieba.cut(claim))
+
     input_text = "premise: {} hypothesis: {}".format(passage, claim)
     print(f"Input text: {input_text}")
     # input_ids = autoais_tokenizer(input_text, return_tensors="pt").input_ids.to(autoais_model.device)
